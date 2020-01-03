@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <div align="middle">
+    <table class="zui-table">
+        <thead>
+            <tr>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Full name</th>
+                <th scope="col">Stock Amount</th>
+                <th scope="col">Current stock Value</th>
+                <th scope="col">Current Wallet Value </th>
+            </tr>
+        </thead>
+        {% for index in indexes %}
+     <tr>
+
+      <td>{{ index['symbol'] }}</td>
+      <td>{{ index['Fullname'] }}</td>
+      <td>{{ index['SUM(amount)'] }}</td>
+      <td>{{ index['price'] }}</td>
+      <td>{{ index['Curent'] | usd }}</td>
+    </tr>
+        {% endfor %}
+    <tr>
+        <td class = "total-table"><b>Wallet Value</b></td>
+        <td class = "total-table"></td>
+        <td class = "total-table"></td>
+        <td class = "total-table"></td>
+        <td class = "total-table"><b>{{ total | usd }}</b></td>
+    </tr>
+    </table>
+    </div>
+
+{% endblock %}

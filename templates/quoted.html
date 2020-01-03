@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <div align="middle">
+    <table>
+        <tr>
+           <td> NAME : {{ stock['name'] }} </td>
+        </tr>
+        <tr>
+           <td> PRICE : {{ stock['price'] | usd }} </td>
+        </tr>
+    </table>
+    </div>
+
+{% endblock %}

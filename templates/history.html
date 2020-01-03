@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <div align="middle">
+    <table class="zui-table">
+        <thead>
+            <tr>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Transaction Type</th>
+                <th scope="col">Stock Amount</th>
+                <th scope="col">Transaction stock price</th>
+                <th scope="col">Date and Time </th>
+            </tr>
+        </thead>
+        {% for histo in history %}
+     <tr>
+
+      <td>{{ histo['symbol'] }}</td>
+      <td>{{ histo['type'] }}</td>
+      <td>{{ histo['amount'] }}</td>
+      <td>{{ histo['price'] | usd }}</td>
+      <td>{{ histo['date'] }}</td>
+    </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+{% endblock %}
